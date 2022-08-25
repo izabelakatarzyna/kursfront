@@ -1,3 +1,29 @@
 body {
   background-color: bisque;
+  margin: 0;
+}
+.bodyHeader {
+  border: 2px dashed red;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: flex-start*/
+  align-items: center;
+}
+/*jeżeli podajemy 2 wartości: to jest góra i dół*/
+h1 {
+  margin: 6px 10px;
+}
+ul {
+  border: 2px dashed gray;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  /*justify-content: space-around;*/
+  /*justify-content: space-evenly;*/
+  /*justify-content: space-between;*/
+}
+li {
+  border: 5px dashed blue;
 }

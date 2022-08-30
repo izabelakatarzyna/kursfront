@@ -44,7 +44,6 @@ article p:active {
 }
 @media (min-width: 369px) {
   article img {
-    height: 5px;
     display: flex;
     flex-wrap: wrap;
   }

@@ -2,12 +2,14 @@
 
 body {
   background-color: aquamarine;
+  margin: 0;
 }
 main {
-  border: 2px dashed red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 article {
-  border: 5px dashed blue;
   position: relative;
   width: 90vw;
   height: 90vw;
@@ -29,7 +31,7 @@ article img {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 5px dashed rgb(222, 17, 51);
+
   margin: 0;
   display: flex;
   align-items: center;
@@ -42,9 +44,31 @@ article p {
 article p:active {
   opacity: 0;
 }
-@media (min-width: 369px) {
-  article img {
-    display: flex;
+header {
+  position: sticky;
+  top: 0;
+  background-color: aquamarine;
+  z-index: 1;
+  padding: 1rem 1rem;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: aquamarine;
+  padding-left: 2rem;
+}
+
+@media (min-width: 768px) {
+  article {
+    width: 35vw;
+    height: 35vw;
+    margin-bottom: 5vw;
+  }
+  main {
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 }

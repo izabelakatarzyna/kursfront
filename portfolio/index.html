@@ -59,23 +59,63 @@
       </tbody>
     </table>
 
-    <main><header></h2>O Mnie</h2></header></main>
-
+    <main class="wrapper"><header></h2>O Mnie</h2></header></main>
+    <header><h2>Projekty</h2></header>
     <img src="Iza.jpg" alt="Iza" />
-    <article>
-      <header><h2>Projekty</h2></header>
-    </article>
-    <section>
-      <h2>Kontakt</h2>
+    <article class="wrapper">
       <header>
-        <form>
-          <input type="email" placeholder="EMAIL" />
-         <input type="text" placeholder="Tytuł wiadomości" />
-            <textarea placeholder="Twoja wiadomość"  cols="21" rows="5"></textarea>
-          <input type="submit" value="WYŚLIJ" />
-        </form>
+        <h2>UMIĘTNOŚCI</h2>
       </header>
+  
+      <!-- im większy border tym grubsza tabelka -->
+      <table border="3">
+        <!-- nagłówek tabeli -->
+        <thead>
+          <!-- wiersz nagłówkowy -->
+          <tr>
+            <!-- TABLE HEADING komórka nagłówka -->
+            <th>LP. </th>
+            <th>TECHNOLOGIA</th>
+            <th>BIEGŁOŚĆ</th>
+          </tr>
+        </thead>
+  
+        <!-- tabela właściwa (dane) -->
+        <tbody>
+          <!-- TABLE ROW (wiersz) -->
+          <tr>
+            <!-- TABLE DIVIDE (podział wiersza) -->
+            <td>1</td>
+            <td>HTML</td>
+            <td>⭐⭐⭐⭐⭐</td>
+          </tr>
+  
+          <tr>
+            <td>2</td>
+            <td>CSS</td>
+            <td>⭐</td>
+          </tr>
+  
+        </tbody>
+      </table>
+  
+    </article>
+  
+  
+    <section class="wrapper">
+      <header>
+        <h2>KONTAKT</h2>
+      </header>
+  
+      <form>
+        <input type="email" placeholder="EMAIL" />
+        <input type="text" placeholder="TYTUŁ">
+        <textarea cols="21" rows="5" placeholder="WIADOMOŚĆ"></textarea>
+        <input type="submit" value="WYŚLIJ">
+      </form>
+  
     </section>
+  
     <footer></footer>
   </body>
 </html>

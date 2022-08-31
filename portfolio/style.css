@@ -1,10 +1,22 @@
+:root {
+  --foreground-dark: #2b47e3;
+  --foreground-light: #dc2ffa;
+  --background-dark: #31f1fa;
+  --background-light: #ffff;
+}
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: peachpuff;
+  background-color: var(--background-dark);
   margin: 0;
   min-height: 1000px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .bodyHeader {
+  background-color: var(--background-light);
   border: 5px dashed red;
   display: flex;
   justify-content: space-between;
@@ -16,14 +28,50 @@ body {
 h1 {
   /* jeśli podajemy 2 wartości : poz y, poz x */
   margin: 6px 10px;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
 }
-
+#toggler {
+  display: none;
+}
+.bodyHeader nav {
+  position: relative;
+}
+#toggler:checked ~ ul {
+  right: 0;
+}
+label {
+  /*border: 5px dashed red;*/
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.15rem;
+}
+label div {
+  height: 2px;
+  width: 100%;
+  background-color: #000;
+  position: absolute;
+}
+label div:nth-child(1) {
+  top: calc(22% - 1px);
+}
+label div:nth-child(2) {
+  top: calc(50% - 1px);
+}
+label div:nth-child(3) {
+  top: calc(78% - 2px);
+}
 ul {
   border: 5px dashed yellow;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  right: 100%;
+  top: 3rem;
 }
 
 li {

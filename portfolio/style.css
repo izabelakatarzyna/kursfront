@@ -1,6 +1,6 @@
 :root {
   --foreground-dark: #2b47e3;
-  --foreground-light: #dc2ffa;
+  --foreground-light: #ffff;
   --background-dark: #31f1fa;
   --background-light: #ffff;
 }
@@ -14,31 +14,34 @@ body {
   min-height: 1000px;
   font-family: "Montserrat", sans-serif;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .bodyHeader {
   background-color: var(--background-light);
-  border: 5px dashed red;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
 }
-
+.bodyHeader nav {
+  position: relative;
+}
 h1 {
   /* jeśli podajemy 2 wartości : poz y, poz x */
   margin: 6px 10px;
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  text-align: center;
 }
 #toggler {
   display: none;
 }
-.bodyHeader nav {
-  position: relative;
-}
 #toggler:checked ~ ul {
   right: 0;
 }
+
 label {
   /*border: 5px dashed red;*/
   width: 2rem;
@@ -50,9 +53,10 @@ label {
 }
 label div {
   height: 2px;
-  width: 100%;
+  width: 80%;
   background-color: #000;
   position: absolute;
+  transition: 0.2s;
 }
 label div:nth-child(1) {
   top: calc(22% - 1px);
@@ -61,32 +65,49 @@ label div:nth-child(2) {
   top: calc(50% - 1px);
 }
 label div:nth-child(3) {
-  top: calc(78% - 2px);
+  top: calc(78% - 1px);
+}
+#toggler:checked ~ label div:nth-child(1) {
+  transform: rotate(45deg);
+  top: calc(50% - 1px);
+}
+
+#toggler:checked ~ label div:nth-child(2) {
+  opacity: 0;
+}
+#toggler:checked ~ label div:nth-child(3) {
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
 }
 ul {
-  border: 5px dashed yellow;
+  background-color: var(--foreground-light);
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  justify-content: space-around;
+  padding: 2rem;
+  display: flex;
   position: fixed;
   right: 100%;
-  top: 3rem;
+  /*top: 3rem;*/
+  top: 2.1rem;
+  height: calc(100% - 2.1rem);
+  transition: 0.5s;
+  flex-direction: column;
 }
-
 li {
-  border: 5px dashed blue;
-  top: 0;
-  left: 0;
+  margin: 0.3rem;
 }
-/* warunek, wyłapujący wyświetlanie na telefonie */
-@media (max-width: 768px) {
+/* warunek, wyłapujący wyświetlanie na komputerze */
+@media (mmin-width: 768px) {
   ul {
     /* display:none; */
-    flex-direction: column;
+    flex-direction: row;
+    position: static;
+    background-color: transparent;
+  }
+  label {
+    display: none;
   }
 }
-
 form {
   border: 5px dashed red;
   display: flex;

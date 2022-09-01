@@ -162,8 +162,6 @@ form {
   padding: 0.5rem;
   line-height: 1.2rem;
 }
-.content {
-}
 table {
   border: 2px #23484a;
   box-shadow: 5px 10px 20px #000;
@@ -173,7 +171,6 @@ table {
 }
 th {
   background-color: var(--foreground-light);
-  padding: 5rem;
 }
 td {
   background-color: var(--foreground-light);

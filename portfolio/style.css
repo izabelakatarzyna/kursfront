@@ -1,7 +1,7 @@
 :root {
   --foreground-dark: #2b47e3;
   --foreground-light: #ffff;
-  --background-dark: #31f1fa;
+  --background-dark: #deeeee;
   --background-light: #ffff;
 }
 * {
@@ -28,18 +28,19 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   box-shadow: 2px 5px 10px #000;
 }
-.bodyHeader nav {
-  position: relative;
-}
+/*.bodyHeader nav {
+}*/
 h1 {
   /* jeśli podajemy 2 wartości : poz y, poz x */
   margin: 6px 10px;
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   text-align: center;
+  color: #23484a;
 }
 #toggler {
   display: none;
@@ -94,7 +95,7 @@ ul {
   position: fixed;
   right: -100%;
   /*top: 3rem;*/
-  top: 3.5rem;
+  top: 2.5rem;
   height: calc(100% - 3.5rem);
   transition: 0.5s;
   flex-direction: column;
@@ -141,13 +142,43 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 3.5rem 0.5rem 0 0.5rem;
 }
 .wrapper header {
   width: 100%;
 }
 *h2 {
   text-align: center;
+  padding: 2x;
 }
-div {
-  display: block;
+.wrapper h2 {
+  padding-top: 2rem;
+  color: #23484a;
+  text-align: center;
+}
+.wrapper p {
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  line-height: 1.2rem;
+}
+.content {
+}
+table {
+  border: 2px #23484a;
+  box-shadow: 5px 10px 20px #000;
+  width: 100%;
+
+  border-collapse: collapse;
+}
+th {
+  background-color: var(--foreground-light);
+  padding: 5rem;
+}
+td {
+  background-color: var(--foreground-light);
+  padding: 0.5rem;
+}
+.tableWrapper {
+  padding: 0 2rem;
 }

@@ -169,8 +169,7 @@ table {
   box-shadow: 5px 10px 20px #000;
   width: 100%;
   background-color: #23484a;
-
-  border-collapse: collapse;
+  border-collapse: separate;
 }
 th {
   background-color: var(--foreground-light);
@@ -192,6 +191,7 @@ footer {
   justify-content: space-between;
   align-items: flex-end;
   padding: 1rem;
+  width: 100%;
 }
 footer ol {
   list-style: none;

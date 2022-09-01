@@ -17,6 +17,11 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  display: flex;
+  align-items: center;
+}
+.material-symbols-outlined {
+  margin: 0.25rem;
 }
 .bodyHeader {
   background-color: var(--background-light);
@@ -25,6 +30,7 @@ a {
   align-items: center;
   position: sticky;
   top: 0;
+  box-shadow: 2px 5px 10px #000;
 }
 .bodyHeader nav {
   position: relative;
@@ -86,10 +92,10 @@ ul {
   padding: 2rem;
   display: flex;
   position: fixed;
-  right: 100%;
+  right: -100%;
   /*top: 3rem;*/
-  top: 2.1rem;
-  height: calc(100% - 2.1rem);
+  top: 3.5rem;
+  height: calc(100% - 3.5rem);
   transition: 0.5s;
   flex-direction: column;
 }
@@ -97,7 +103,7 @@ li {
   margin: 0.3rem;
 }
 /* warunek, wyłapujący wyświetlanie na komputerze */
-@media (mmin-width: 768px) {
+@media (min-width: 768px) {
   ul {
     /* display:none; */
     flex-direction: row;
@@ -122,7 +128,8 @@ textarea {
 }
 
 img {
-  max-width: 100%;
+  width: 400px;
+  height: 600px;
 }
 
 form {
@@ -140,4 +147,7 @@ form {
 }
 *h2 {
   text-align: center;
+}
+div {
+  display: block;
 }

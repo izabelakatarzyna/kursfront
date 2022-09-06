@@ -209,3 +209,6 @@ footer p {
   border: 2px #23484a;
   box-shadow: 5px 10px 20px #000;
 }
+.button {
+  border-radius: 10px;
+}

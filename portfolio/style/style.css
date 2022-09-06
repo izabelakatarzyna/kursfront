@@ -1,6 +1,6 @@
 @charset "UTF-8";
-body .bodyHeader h1 {
-  margin: 0;
+* {
+  box-sizing: border-box;
 }
 
 :root {
@@ -10,8 +10,8 @@ body .bodyHeader h1 {
   --background-light: #ffff;
 }
 
-* {
-  box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,16 +20,19 @@ body {
   min-height: 1000px;
   font-family: "Montserrat", sans-serif;
 }
+body .material-symbols-outlined {
+  margin: 0.25rem;
+}
+
+body .bodyHeader h1 {
+  margin: 0;
+}
 
 a {
   text-decoration: none;
   color: inherit;
   display: flex;
   align-items: center;
-}
-
-.material-symbols-outlined {
-  margin: 0.25rem;
 }
 
 .bodyHeader {

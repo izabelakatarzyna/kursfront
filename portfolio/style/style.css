@@ -157,7 +157,6 @@ img {
   padding: 0 2rem;
 }
 .wrapper table {
-  border: 2px #23484a;
   box-shadow: 5px 10px 20px #000;
   width: 50%;
   background-color: #23484a;
@@ -175,7 +174,8 @@ img {
   padding: 2px;
   width: 100%;
 }
-.wrapper footer {
+
+footer {
   border: 2px;
   margin-top: 3rem;
   background-color: black;
@@ -187,23 +187,25 @@ img {
   padding: 1rem;
   width: 100%;
 }
-.wrapper footer ol {
+footer ol {
   list-style: none;
   margin: 0;
   padding: 1rem;
   font-size: 0.8rem;
 }
-.wrapper footer p {
+footer p {
   margin: 0;
 }
-.wrapper .contact {
+
+.contact {
   display: flex;
   justify-items: first baseline;
   padding: 1rem;
   border: 2px #23484a;
   box-shadow: 5px 10px 20px #000;
 }
-.wrapper .button {
+
+.button {
   border-radius: 10px;
   display: flex;
   width: 70px 20px;
@@ -219,14 +221,14 @@ img {
     display: none;
   }
   body .wrapper {
-    border: 10px dashed red;
     flex-direction: row;
+  }
+  body .wrapper:nth-child(odd) {
     flex-direction: row-reverse;
   }
   body .wrapper * {
-    border: 10px dashed blue;
     flex: 1;
     text-align: center;
-    padding: 3rem;
+    padding: 0.3rem;
   }
 }

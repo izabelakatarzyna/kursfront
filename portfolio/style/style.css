@@ -112,7 +112,8 @@ nav ul {
 nav ul li {
   margin: 0.3rem;
 }
-nav form {
+
+form {
   display: flex;
   flex-direction: column;
   padding: 0.1rem;
@@ -121,57 +122,60 @@ nav form {
   gap: 5px;
   width: 50%;
 }
-nav form input,
-nav form textarea {
+form input,
+form textarea {
   padding: 10px;
 }
-nav img {
+
+img {
   width: 400px;
   height: 600px;
 }
-nav .wrapper {
+
+.wrapper {
   /* border:5px dashed pink; */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3.5rem 0.5rem 0 0.5rem;
 }
-nav .wrapper header {
+.wrapper header {
   width: 100%;
 }
-nav .wrapper header h2 {
+.wrapper header h2 {
   padding-top: 2rem;
   color: #23484a;
   text-align: center;
 }
-nav .wrapper .content p {
+.wrapper .content p {
   margin: 0;
   margin-bottom: 2rem;
   padding: 0.5rem;
   line-height: 1.2rem;
 }
-nav .wrapper .tableWrapper {
+.wrapper .tableWrapper {
   padding: 0 2rem;
 }
-nav .wrapper table {
+.wrapper table {
   border: 2px #23484a;
   box-shadow: 5px 10px 20px #000;
   width: 50%;
   background-color: #23484a;
   border-collapse: separate;
 }
-nav .wrapper table th {
+.wrapper table th {
   background-color: var(--foreground-light);
 }
-nav .wrapper table td {
+.wrapper table td {
   background-color: var(--foreground-light);
   padding: 0.5rem;
 }
-nav .wrapper h2 {
+.wrapper h2 {
   text-align: center;
-  padding: 2x;
+  padding: 2px;
+  width: 100%;
 }
-nav .wrapper footer {
+.wrapper footer {
   border: 2px;
   margin-top: 3rem;
   background-color: black;
@@ -183,23 +187,23 @@ nav .wrapper footer {
   padding: 1rem;
   width: 100%;
 }
-nav .wrapper footer ol {
+.wrapper footer ol {
   list-style: none;
   margin: 0;
   padding: 1rem;
   font-size: 0.8rem;
 }
-nav .wrapper footer p {
+.wrapper footer p {
   margin: 0;
 }
-nav .wrapper .contact {
+.wrapper .contact {
   display: flex;
   justify-items: first baseline;
   padding: 1rem;
   border: 2px #23484a;
   box-shadow: 5px 10px 20px #000;
 }
-nav .wrapper .button {
+.wrapper .button {
   border-radius: 10px;
   display: flex;
   width: 70px 20px;

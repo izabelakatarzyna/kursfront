@@ -115,31 +115,6 @@ nav {
     }
   }
   /* warunek, wyłapujący wyświetlanie na komputerze */
-  @media (min-width: 768px) {
-    body {
-      .bodyHeader nav {
-        ul {
-          /* display:none; */
-          flex-direction: row;
-          position: static;
-          label {
-            display: none;
-          }
-        }
-      }
-      .wrapper {
-        border: 10px dashed red;
-        flex-direction: row;
-        flex-direction: row-reverse;
-        * {
-          border: 10px dashed blue;
-          flex: 1;
-          text-align: center;
-          padding: 3rem;
-        }
-      }
-    }
-  }
   form {
     display: flex;
     flex-direction: column;
@@ -197,7 +172,7 @@ nav {
         padding: 0.5rem;
       }
     }
-    *h2 {
+    h2 {
       text-align: center;
       padding: 2x;
     }
@@ -233,6 +208,31 @@ nav {
       border-radius: 10px;
       display: flex;
       width: 70px 20px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  body {
+    .bodyHeader nav {
+      ul {
+        /* display:none; */
+        flex-direction: row;
+        position: static;
+      }
+      label {
+        display: none;
+      }
+    }
+    .wrapper {
+      border: 10px dashed red;
+      flex-direction: row;
+      flex-direction: row-reverse;
+      * {
+        border: 10px dashed blue;
+        flex: 1;
+        text-align: center;
+        padding: 3rem;
+      }
     }
   }
 }

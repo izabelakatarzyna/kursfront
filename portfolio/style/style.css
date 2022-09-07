@@ -112,27 +112,6 @@ nav ul {
 nav ul li {
   margin: 0.3rem;
 }
-@media (min-width: 768px) {
-  nav body .bodyHeader nav ul {
-    /* display:none; */
-    flex-direction: row;
-    position: static;
-  }
-  nav body .bodyHeader nav ul label {
-    display: none;
-  }
-  nav body .wrapper {
-    border: 10px dashed red;
-    flex-direction: row;
-    flex-direction: row-reverse;
-  }
-  nav body .wrapper * {
-    border: 10px dashed blue;
-    flex: 1;
-    text-align: center;
-    padding: 3rem;
-  }
-}
 nav form {
   display: flex;
   flex-direction: column;
@@ -188,7 +167,7 @@ nav .wrapper table td {
   background-color: var(--foreground-light);
   padding: 0.5rem;
 }
-nav .wrapper * h2 {
+nav .wrapper h2 {
   text-align: center;
   padding: 2x;
 }
@@ -224,4 +203,26 @@ nav .wrapper .button {
   border-radius: 10px;
   display: flex;
   width: 70px 20px;
+}
+
+@media (min-width: 768px) {
+  body .bodyHeader nav ul {
+    /* display:none; */
+    flex-direction: row;
+    position: static;
+  }
+  body .bodyHeader nav label {
+    display: none;
+  }
+  body .wrapper {
+    border: 10px dashed red;
+    flex-direction: row;
+    flex-direction: row-reverse;
+  }
+  body .wrapper * {
+    border: 10px dashed blue;
+    flex: 1;
+    text-align: center;
+    padding: 3rem;
+  }
 }

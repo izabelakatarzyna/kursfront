@@ -18,7 +18,8 @@ const views = [
 ];
 //Stwórz funkcję, która będzie pobierała w argumencie numer slajdu (0 - 2) i na jego podstawie będzie wyświetlała wartości z tablicy (z pkt 1) w dokumencie html’a (będzie wyświetlała zdjęcie i tytuł)
 function getSingleView( index ){
-const h2 = 
+const h2 = document.querySelector("h2")
+h2.innerHTML = "test"
 }
 
 getSingleView(0)

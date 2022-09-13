@@ -16,6 +16,16 @@ const views = [
     name: "Trzeci",
     alt: "Beach",
   },
+  {
+    src: "4.webp",
+    name: "Czwarty",
+    alt: "Skyscrapers",
+  },
+  {
+    src: "5.webp",
+    name: "Piąty",
+    alt: "Beach",
+  },
 ];
 
 //Stwórz funkcję, która będzie pobierała w argumencie numer slajdu (0 - 2) i na jego podstawie będzie wyświetlała wartości z tablicy (z pkt 1) w dokumencie html’a (będzie wyświetlała zdjęcie i tytuł)

@@ -57,22 +57,19 @@ function modifyCurrentSlide(direction) {
     currentSlide++;
   }
   //sprawdź, czy nr slajdu nie jest większy niż ilość wszystkich slajdów
-  if (currentSlide > views.length) {
+  if (currentSlide >= views.length) {
     currentSlide = 0;
   }
-  getSingleView(currentSlide);
-  //jeżeli jest to pokaż pierwszy slajd
-
-  //sprawdź, czy strzałka została kliknięta w prawo
+  //sprawdź, czy strzałka została kliknięta w lewo
   if (direction == "left") {
-    //przesuń do następnego slajdu
+    //cofnij do następnego slajdu
     currentSlide--;
   }
   //sprawdź, czy nr slajdu nie jest większy niż ilość wszystkich slajdów
-  if (currentSlide > views.length) {
+  if (currentSlide < 0) {
     //jeżeli jest to pokaż pierwszy slajd
 
-    currentSlide = 0;
+    currentSlide = views.length - 1;
   }
   console.log(currentSlide);
   //wyświetl zdjęcie i tekst na podstawie currentSlide
@@ -83,4 +80,9 @@ function modifyCurrentSlide(direction) {
 const rightArr = document.querySelector(".right");
 rightArr.onclick = function () {
   modifyCurrentSlide("right");
+};
+
+const leftArr = document.querySelector(".left");
+leftArr.onclick = function () {
+  modifyCurrentSlide("left");
 };

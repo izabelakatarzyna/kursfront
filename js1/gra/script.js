@@ -91,7 +91,7 @@ const game = {
   start() {
     game.buttons.start.onclick = "";
     game.buttons.meta.addEventListener("mousemove", game.metaTrigger);
-    gamePlane.addEventListener("mousemove", game.checkIfOnBoard);
+    gamePlane.addEventListener("mousemove", game.gamePlaneListener);
     for (const wall of game.buttons.walls) {
       wall.addEventListener("mousemove", game.wallListener);
     }
@@ -100,13 +100,9 @@ const game = {
 
   wallListener() {
     e.stopPropagation();
-    console.log("wall listen");
   },
   gamePlaneListener(e) {
-    console.log("gamePlane listen");
-  },
-  checkIfOnBoard(e) {
-    console.log(", checking", e);
+    game.over(false);
   },
   metaTrigger() {
     game.over(true);

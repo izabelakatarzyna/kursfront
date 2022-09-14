@@ -91,7 +91,22 @@ const game = {
   start() {
     game.buttons.start.onclick = "";
     game.buttons.meta.addEventListener("mousemove", game.metaTrigger);
+    gamePlane.addEventListener("mousemove", game.checkIfOnBoard);
+    for (const wall of game.buttons.walls) {
+      wall.addEventListener("mousemove", game.wallListener);
+    }
     console.log("GAME STARTED");
+  },
+
+  wallListener() {
+    e.stopPropagation();
+    console.log("wall listen");
+  },
+  gamePlaneListener(e) {
+    console.log("gamePlane listen");
+  },
+  checkIfOnBoard(e) {
+    console.log(", checking", e);
   },
   metaTrigger() {
     game.over(true);
@@ -103,6 +118,11 @@ const game = {
       console.log("YOU LOSE");
     }
     game.buttons.meta.removeEventListener("mousemove", game.metaTrigger);
+
+    gamePlane.removeEventListener("mousemove", game.checkIfOnBoard);
+    for (const wall of game.buttons.walls) {
+      wall.removeEventListener("mousemove", game.wallListener);
+    }
     game.init();
   },
 };

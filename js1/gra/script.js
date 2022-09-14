@@ -123,3 +123,41 @@ const game = {
   },
 };
 game.init();
+
+//komunikaty
+
+const modal = {
+  dom: document.createElement("div"),
+  init() {
+    modal.dom.style.sccText = `
+        border: 10px dashed red;
+        position: fixed;
+        width: 80vw;
+        height: 80vh;
+        left: 1-vw;
+        top: 10vw;
+        background: red;
+        display: flex;
+        flex-direction: column;
+        align-items: center:
+        justify-content: center;
+        `;
+
+    document.body.append(modal.dom);
+
+    const h1 = document.createElement("h1");
+    modal1.dom.append(h1);
+
+    const button = document.createElement("button");
+    button.innerHTML = "OK";
+    modal1.dom.append(button);
+  },
+  show() {
+    modal.dom.style.display = "flex";
+  },
+
+  hide() {
+    modal.dom.style.display = "none";
+  },
+};
+modal.show();

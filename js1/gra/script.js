@@ -60,6 +60,7 @@ function makeWall(x, y, w, h, type = "wall") {
 
 //tablica map przechowująca tablice zawierające informacje o ścianie. każdy pojedyńczy element tablicy map to jest ściana
 const map = [
+  [80, 0, 20, 20, "time"],
   [0, 0, 20, 20, "start"],
   [10, 20, 20, 10],
   [20, 30, 20, 10],
@@ -76,28 +77,46 @@ for (const wall of map) {
   makeWall(...wall);
 }
 
+//detect mobile or desktop
+let isMobile = true
+
 //mechanika gry
 const game = {
+  maxTime: 5,
   buttons: {
+    time: document.querySelector(".time"),
     start: document.querySelector(".start"),
     meta: document.querySelector(".meta"),
     walls: document.querySelectorAll(".wall"),
   },
   //metoda przygotowująca grę
   init() {
-    game.buttons.start.onclick = function () {
-      game.start();
+    
+    game.buttons.start.addEventListener(isMobile ? 'touchmove'; 'click')
+    }else{
+      game.buttons,start.onclick = function () { game.start()}
+
+    }
+      
+      game.time = game.maxTime
+      game.buttons.time.innerHTML = game.time;
     };
   },
   start() {
     game.buttons.start.onclick = "";
-    game.buttons.meta.addEventListener("mousemove", game.over);
+    game.buttons.meta.addEventListener(isMobile ? 'touchmove':"mousemove", game.over);
     //jeżeli nakierujesz myszkę na gamePlane po starcie to przegrywasz grę
-    gamePlane.addEventListener("mousemove", game.gamePlaneListener);
+    gamePlane.addEventListener(isMobile ? 'touchmove':"mousemove", game.gamePlaneListener);
     //wyciągamy jako wall każdą ścianę osobno
     for (const wall of game.buttons.walls) {
       //Jeżeli  Twój kurs jest na klasie wall to nie wyzwalaj żadnych innych słuchaczy
-      wall.addEventListener("mousemove", game.wallListener);
+      wall.addEventListener(isMobile ? 'touchmove':"mousemove", game.wallListener);
+    }
+    game.interval = setInterval(function(){
+      game.time--
+      game.buttons.time.innerHTML = game.time
+      console.log("loguje", game.time)
+    }, 1000)
     }
     console.log("GAME STARTED");
   },
@@ -114,19 +133,19 @@ const game = {
   //     })
   over(result) {
     if (result) {
-      modal.show("wygrana");
+      modal.show("wygrana", green);
+      document.body.style.backgroundColor = "red";
     } else {
-      modal.show("przegrana");
+      modal.show("przegrana", red);
     }
-    game.buttons.meta.removeEventListener("mousemove", game.over);
+    game.buttons.meta.removeEventListener(isMobile ? 'touchmove': "mousemove", game.over);
 
-    gamePlane.removeEventListener("mousemove", game.gamePlaneListener);
+    gamePlane.removeEventListener(isMobile ? 'touchmove':"mousemove", game.gamePlaneListener);
     for (const wall of game.buttons.walls) {
-      wall.removeEventListener("mousemove", game.wallListener);
+      wall.removeEventListener(isMobile ? 'touchmove':"mousemove", game.wallListener);
     }
     game.init();
   },
-};
 //komunikaty
 
 const modal = {
@@ -167,13 +186,15 @@ const modal = {
     };
     modal.dom.append(button);
   },
-  show(text) {
+  show(text, color = "ffffff") {
+    modal.dom.style.backgroundColor = color;
     modal.dom.style.display = "flex";
     modal.h1.innerHTML = text;
   },
 
   hide() {
     modal.dom.style.display = "none";
+    document.body.style.backgroundColor = "blue";
   },
 };
 modal.init();

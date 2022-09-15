@@ -26,7 +26,7 @@ function makeWall(x, y, w, h, type = "wall") {
   //console.log(type);
 
   //ustaw kolor ściany
-  let color = "green";
+  let color = "red";
   if (type == "start") {
     color = "blue";
   }
@@ -147,6 +147,7 @@ const modal = {
         justify-content: center;
         text-align: center;
         border-radious: 10px;
+        font-family: 'Nabla', cursive;
         `;
 
     document.body.append(modal.dom);

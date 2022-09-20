@@ -78,55 +78,63 @@ for (const wall of map) {
 }
 
 //detect mobile or desktop
-let isMobile = true
+let isMobile = navigator.userAgentData.mobile;
+//odśwież stronę po zmianie narzędzi deweloperskich z mobile na desktop i odwrotnie
+window.onresize = function (){
+  location.reload()
+}
 
 //mechanika gry
 const game = {
   maxTime: 5,
-  buttons: {
-    time: document.querySelector(".time"),
-    start: document.querySelector(".start"),
-    meta: document.querySelector(".meta"),
-    walls: document.querySelectorAll(".wall"),
-  },
   //metoda przygotowująca grę
   init() {
-    
-    game.buttons.start.addEventListener(isMobile ? 'touchmove'; 'click')
-    }else{
-      game.buttons,start.onclick = function () { game.start()}
-
-    }
-      
-      game.time = game.maxTime
-      game.buttons.time.innerHTML = game.time;
-    };
-  },
+    game.time =game.maxTime
+    gamePlane.querySelector(".timr").innerHTML = game.time
+    gamePlane.querySelector(".start").addEventListener(isMobile ? "touchstart": "click", game.start)
+  
+  }
   start() {
-    game.buttons.start.onclick = "";
-    game.buttons.meta.addEventListener(isMobile ? 'touchmove':"mousemove", game.over);
-    //jeżeli nakierujesz myszkę na gamePlane po starcie to przegrywasz grę
-    gamePlane.addEventListener(isMobile ? 'touchmove':"mousemove", game.gamePlaneListener);
-    //wyciągamy jako wall każdą ścianę osobno
-    for (const wall of game.buttons.walls) {
-      //Jeżeli  Twój kurs jest na klasie wall to nie wyzwalaj żadnych innych słuchaczy
-      wall.addEventListener(isMobile ? 'touchmove':"mousemove", game.wallListener);
-    }
+    gamePlane.querySelector(".start").removeEventListener(isMobile ? "touchstart":"click", game.start)
+    gamePlane.addEventListener(isMobile ? 'touchmove':"mousemove", game.checkMove);
+    gamePlane.addEventListener("touchend", game.release)
     game.interval = setInterval(function(){
       game.time--
       game.buttons.time.innerHTML = game.time
       console.log("loguje", game.time)
     }, 1000)
+    
+    checkMove(e){
+      let x,y;
+      if(isMobile){
+        x = e.touches[0].clientX
+        y = e.touches[0].clientY
+      }else{
+        x = e.clientX
+        y = e.clientY
+      }
+      console.log("GAME STARTED");
     }
-    console.log("GAME STARTED");
-  },
-
-  wallListener(e) {
-    e.stopPropagation();
-  },
+    for (const wall of game.buttons.walls) {
+      //Jeżeli  Twój kurs jest na klasie wall to nie wyzwalaj żadnych innych słuchaczy
+      wall.addEventListener(isMobile ? 'touchmove':"mousemove", game.wallListener);
+    }
+    console.log ("className", document.elementFromPoint(x, y).className)
+    console.log ("classList", document.elementFromPoint(x, y).classList)
+    let underHover = document.elementFromPoint (x,y).classList;
+    underHover = underHover[underHover.length-1]
+    if( underHover == "wall" || underHover == "start") {return}
+    if( underHover == "meta") { return game.over(true)}
+    game.over(false)
+      }
+    }
+    
+    wallListener(e) {
+      e.stopPropagation();
+    }
   gamePlaneListener(e) {
     game.over(false);
-  },
+  }
   //   metaTrigger(result) {
   //     if(result{
   //         console.log("YOU WIN");
@@ -138,14 +146,11 @@ const game = {
     } else {
       modal.show("przegrana", red);
     }
-    game.buttons.meta.removeEventListener(isMobile ? 'touchmove': "mousemove", game.over);
-
-    gamePlane.removeEventListener(isMobile ? 'touchmove':"mousemove", game.gamePlaneListener);
-    for (const wall of game.buttons.walls) {
-      wall.removeEventListener(isMobile ? 'touchmove':"mousemove", game.wallListener);
-    }
+    game.buttons.meta.removeEventListener(isMobile ? 'touchend', game.release);
+    gamePlane.removeEventListener(isMobile ? 'touchmove':"mousemove", game.checkMove);
+    clearInterval(game.interval)
     game.init();
-  },
+  }
 //komunikaty
 
 const modal = {
@@ -197,7 +202,10 @@ const modal = {
     document.body.style.backgroundColor = "blue";
   },
 };
-modal.init();
+modal.init()
+if(isMobile){
+  modal.show
+} ("Dotknij niebieskiego kafelka aby rozpocząć grę<br/>Przeciągnij palec na pomarańczowy kafelek aby wygrać")
 modal.show(
   "Kliknij na niebieski kafelek aby rozpocząć grę<br/>Przesuń kursor na pomarańczowy kafelek aby wygrać"
 );

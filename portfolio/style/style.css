@@ -127,11 +127,6 @@ form textarea {
   padding: 10px;
 }
 
-img {
-  width: 400px;
-  height: 600px;
-}
-
 .wrapper {
   /* border:5px dashed pink; */
   display: flex;
